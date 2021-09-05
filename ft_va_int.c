@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 15:58:19 by fmoreira          #+#    #+#             */
-/*   Updated: 2021/09/05 11:24:01 by fmoreira         ###   ########.fr       */
+/*   Updated: 2021/09/05 20:13:08 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,47 @@ void	master_int(va_list args, char masks, int *count)
 
 void	master_hex(va_list args, char masks, int *count)
 {
-	long int			arg_va;
-	//unsigned long int	max_pointer;
+	unsigned long	arg_va;
 
-	masks++;
-	(*count)++;
 	arg_va = va_arg(args, unsigned long long int);
-	printf("\n***Valor do resto va_arg por 16: %ld***\n", arg_va % 15);
-	ft_putstr_fd("0x", 1);
-	ft_putnbr_fd(arg_va, 1);
+	if (arg_va)
+	{
+		if(masks == 112)
+		{
+			ft_putstr_fd("0x", 1);
+			(*count) += 2;
+			ft_puthex_fd(arg_va, 1, masks, count);
+		}
+		else
+			ft_puthex_fd((unsigned int)arg_va, 1, masks, count);
+	}
+	else if (masks == 112)
+	{
+		ft_putstr_fd("(nil)", 1);
+		(*count) += 5;
+	}
+	else
+	{
+		ft_putchar_fd('0', 1);
+		(*count)++;
+	}
+}
 
-	arg_va++;
+void	ft_puthex_fd(unsigned long long int n, int fd, char masks, int *count)
+{
+	size_t	i;
 
-} 
+	i = n;
+	n = (i % 16);
+	if (n < 10)
+		n += 48;
+	else if (masks != 88)
+		n += 87;
+	else
+		n += 55;
+	i = i / 16;
+	if (i != (i > 0 && i < 1))
+		ft_puthex_fd(i, fd, masks, count);
+	(*count)++;
+	write(fd, &n, sizeof(char));
+}

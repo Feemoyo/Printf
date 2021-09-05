@@ -6,12 +6,12 @@
 #    By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/09 15:28:38 by fmoreira          #+#    #+#              #
-#    Updated: 2021/09/01 18:49:15 by fmoreira         ###   ########.fr        #
+#    Updated: 2021/09/05 19:40:06 by fmoreira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	=
 LIB1	= ar -rcs
 LIB2	= ranlib
 RM		= rm -rf
