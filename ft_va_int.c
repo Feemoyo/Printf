@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 15:58:19 by fmoreira          #+#    #+#             */
-/*   Updated: 2021/09/04 12:37:12 by fmoreira         ###   ########.fr       */
+/*   Updated: 2021/09/05 11:24:01 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,19 @@ void	master_int(va_list args, char masks, int *count)
 		(*count)++;
 	}
 }
+
+void	master_hex(va_list args, char masks, int *count)
+{
+	long int			arg_va;
+	//unsigned long int	max_pointer;
+
+	masks++;
+	(*count)++;
+	arg_va = va_arg(args, unsigned long long int);
+	printf("\n***Valor do resto va_arg por 16: %ld***\n", arg_va % 15);
+	ft_putstr_fd("0x", 1);
+	ft_putnbr_fd(arg_va, 1);
+
+	arg_va++;
+
+} 

@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 15:58:42 by fmoreira          #+#    #+#             */
-/*   Updated: 2021/09/04 12:32:15 by fmoreira         ###   ########.fr       */
+/*   Updated: 2021/09/04 19:33:08 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ size_t	ft_strlen(const char *s);
 void	ft_onechar(va_list args, char masks, int *count);
 void	master_int(va_list args, char masks, int *count);
 void	master_unsgined_int(va_list args, int *count);
+void	master_hex(va_list args, char masks, int *count);
 
 typedef struct s_type
 {
