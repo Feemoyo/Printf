@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 15:58:19 by fmoreira          #+#    #+#             */
-/*   Updated: 2021/09/05 20:54:46 by fmoreira         ###   ########.fr       */
+/*   Updated: 2021/09/05 20:57:27 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	master_hex(va_list args, char masks, int *count)
 	else if (masks == 112)
 	{
 		ft_putstr_fd("0x0", 1);
-		(*count) += 5;
+		(*count) += 3;
 	}
 	else
 	{
