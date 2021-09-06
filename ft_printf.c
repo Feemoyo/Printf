@@ -6,7 +6,7 @@
 /*   By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 15:57:52 by fmoreira          #+#    #+#             */
-/*   Updated: 2021/09/05 21:36:06 by fmoreira         ###   ########.fr       */
+/*   Updated: 2021/09/06 13:42:41 by fmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,27 +41,25 @@ static void	masks_type(va_list args, char masks, int *count)
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	char	*dupdata;
+	char	*dup_data;
 	int		i;
 	int		count;
 
 	va_start(args, format);
-	dupdata = ft_strdup(format);
+	dup_data = ft_strdup(format);
 	i = -1;
 	count = 0;
-	while (dupdata[++i])
+	while (dup_data[++i])
 	{
-		if (dupdata[i] == 37)
-		{
-			masks_type(args, dupdata[++i], &count);
-		}
+		if (dup_data[i] == 37)
+			masks_type(args, dup_data[++i], &count);
 		else
 		{
-			ft_putchar_fd(dupdata[i], 1);
+			ft_putchar_fd(dup_data[i], 1);
 			count++;
 		}
 	}
-	free(dupdata);
+	free(dup_data);
 	va_end(args);
 	return (count);
 }

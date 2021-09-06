@@ -6,7 +6,7 @@
 #    By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/09 15:28:38 by fmoreira          #+#    #+#              #
-#    Updated: 2021/09/05 21:34:31 by fmoreira         ###   ########.fr        #
+#    Updated: 2021/09/06 13:47:58 by fmoreira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,8 @@ RM		= rm -rf
 NAME	= libftprintf.a
 
 SRCS	= ft_printf.c ft_putchar_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
-			ft_strdup.c ft_memcpy.c ft_strlen.c ft_va_int.c \
+			ft_strdup.c ft_memcpy.c ft_strlen.c ft_printf_utils.c \
 
-BONUS_S	= ft_printf_bonus.c
-
-BONUS_O	= $(BONUS_S:.c=.o)
 OBJS	= $(SRCS:.c=.o)
 PROGRAM	= main.out
 
@@ -36,10 +33,6 @@ msg:
 
 $(NAME):	$(OBJS)
 				$(LIB1) $(NAME) $(OBJS)
-				$(LIB2) $(NAME)
-
-bonus:		$(NAME) $(BONUS_O)
-				$(LIB1) $(NAME) $(BONUS_O)
 				$(LIB2) $(NAME)
 
 clean:		
