@@ -6,12 +6,12 @@
 #    By: fmoreira <fmoreira@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/09 15:28:38 by fmoreira          #+#    #+#              #
-#    Updated: 2021/09/05 19:40:06 by fmoreira         ###   ########.fr        #
+#    Updated: 2021/09/05 21:34:31 by fmoreira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= gcc
-CFLAGS	=
+CFLAGS	= -Wall -Wextra -Werror
 LIB1	= ar -rcs
 LIB2	= ranlib
 RM		= rm -rf
@@ -32,21 +32,21 @@ msg:
 				@echo "Compiling..."
 
 .c.o:		
-				@$(CC) $(CFLAGS) -c -fPIC $< -o $(<:.c=.o)
+				$(CC) $(CFLAGS) -c -fPIC $< -o $(<:.c=.o)
 
 $(NAME):	$(OBJS)
-				@$(LIB1) $(NAME) $(OBJS)
-				@$(LIB2) $(NAME)
+				$(LIB1) $(NAME) $(OBJS)
+				$(LIB2) $(NAME)
 
 bonus:		$(NAME) $(BONUS_O)
 				$(LIB1) $(NAME) $(BONUS_O)
 				$(LIB2) $(NAME)
 
 clean:		
-				@$(RM) $(OBJS)
+				$(RM) $(OBJS)
 
 fclean:		clean
-				@$(RM) $(NAME) $(PROGRAM) *.a
+				$(RM) $(NAME) $(PROGRAM) *.a
 
 compile:	fclean $(NAME)
 				$(CC) -static main.c -L . -lftprintf $(CFLAGS) -lbsd -o $(PROGRAM)
